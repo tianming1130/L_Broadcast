@@ -63,5 +63,4 @@ public class DynamicActivity extends AppCompatActivity implements View.OnClickLi
     public void setText(String strText) {
         tvShowMsg.setText(strText);
     }
-
 }

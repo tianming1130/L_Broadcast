@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class BatteryChangeActivity extends AppCompatActivity {
 
     private TextView tvShowPower;
-
+    private BatteryChangeReceiver batteryChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +19,17 @@ public class BatteryChangeActivity extends AppCompatActivity {
 
         tvShowPower = (TextView) findViewById(R.id.tv_show_power);
 
-        BatteryChangeReceiver batteryChangeReceiverReceiver = new BatteryChangeReceiver();
+        batteryChangeReceiver= new BatteryChangeReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_BATTERY_CHANGED);
         //注册showPowerReceiver
-        registerReceiver(batteryChangeReceiverReceiver, filter);
+        registerReceiver(batteryChangeReceiver, filter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(batteryChangeReceiver);
     }
 
     class BatteryChangeReceiver extends BroadcastReceiver {
