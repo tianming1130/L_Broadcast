@@ -14,5 +14,5 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_show_power"/>
+        android:id="@+id/tv_battery_change"/>
 </LinearLayout>

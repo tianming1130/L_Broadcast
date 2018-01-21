@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 public class BatteryChangeActivity extends AppCompatActivity {
 
-    private TextView tvShowPower;
+    private TextView tvBatteryChange;
     private BatteryChangeReceiver batteryChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_power);
+        setContentView(R.layout.activity_battery_change);
 
-        tvShowPower = (TextView) findViewById(R.id.tv_show_power);
+        tvBatteryChange = (TextView) findViewById(R.id.tv_battery_change);
 
         batteryChangeReceiver= new BatteryChangeReceiver();
         IntentFilter filter = new IntentFilter();
@@ -40,7 +40,7 @@ public class BatteryChangeActivity extends AppCompatActivity {
             //总电量
             int scale = intent.getIntExtra("scale", 100);
             int current = level * 100 / scale;
-            tvShowPower.setText("当前电量：" + current + "%");
+            tvBatteryChange.setText("当前电量：" + current + "%");
         }
     }
 }
