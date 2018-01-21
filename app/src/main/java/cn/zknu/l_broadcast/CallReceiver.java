@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class CallReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+
         //获取电话管理服务
         TelephonyManager tm = (TelephonyManager) context
                 .getSystemService(Service.TELEPHONY_SERVICE);
